@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Home{% endblock %}
+
+{% block content %}
+<h2>ATM Footage Search App</h2>
+<p>This page is for me to log my progress in developing this app.</p>
+<hr>
+<a href="{% url 'home' %}">Home</a>
+<h3>Tasks Completed</h3>
+<ul>
+    <li>Created view function 'home' and template 'home.html' | 06-07-2020</li>
+    <li>Added home to urlpatterns | 06-07-2020</li>
+    <li>Created 3 models: Branch, Terminal, Transactions | 06-07-2020</li>
+    <li>Successfully made migrations (make, show and migrate) | 06-07-2020</li>
+    <li>Registered models in admin.py (under footage_app) | 06-07-2020</li>
+    <li>Created superuser 'atmadmin' | 06-07-2020</li>
+    <li>Hardcoded link to style.css in home.html | 06-07-2020</li>
+    <li>Created base template, added style.css (loaded statically), created progress template and view function | 06-08-2020</li>
+    <li>Created a custom form for searching transactions | 06-09-2020</li>
+    <li>Reduced max length of terminal_id to 4 | 06-09-2020</li>
+    <li>Created search.html for the form | 06-09-2020</li>
+    <li>Successfully sent user input to sample page 'results.html' | 06-09-2020</li>
+    <li>Renamed Transactions class to Transaction | 06-10-2020</li>
+    <li>Increased max length of terminal name in Terminal class | 06-10-2020</li>
+    <li>Populate tables with relevant sample data | 06-10-2020</li>
+    <li>Successfully queried Transaction model and got sample results | 06-10-2020</li>
+    <li>Successfully displayed results from query onscreen | 06-11-2020</li>
+    <li>Made additional results page to test out query results | 06-11-2020</li>
+    <li>Find a way to reuse results page | 06-12-2020</li>
+    <li>Used template tags to assign success/failed transactions with CSS | 06-12-2020</li>
+    <li>Revised text in results and added extracss block template tag to search.html | 06-12-2020</li>
+    <li>Modified searchForm function to exclude amount | 06-12-2020</li>
+    <li>Changed fonts to enhance legibility and some added CSS | 06-12-2020</li>
+    <li>Created a more dashboard-like interface for home page | 06-14-2020</li>
+    <li>Added doughnut chart of success/failed transactions using ChartJS | 06-14-2020</li>
+    <li>Added another view function, form, error handling for query | 06-14-2020</li>
+    <li>Added third and final view function, form, error handling for query | 06-18-2020</li>
+    <li>This project has reached its inevitable conclusion | 06-18-2020</li>
+    <li>Added login feature for authorized accounts | 06-20-2020</li>
+</ul>
+<h3>Tasks Pending</h3>
+<span>In no certain order</span>
+<ul>
+    <li>Add more data to the home page dashboard</li>
+    <li>Find a way to reuse results page and make Submit button of old form disappear</li>
+    <li>Enable use of form without all fields in searchTrxn (optional fields)</li>
+    <li>Loading images on a page</li>
+</ul>
+
+{% endblock %}

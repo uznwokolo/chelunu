@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Form Results{% endblock %}
+
+
+{% block content %}
+<h2>Transaction Sample</h2>
+{% for item in trxnlist %}
+<p>
+	Transaction was found: ATM ID {{ item.terminal_id }} was used with Card PAN {{ item.card_pan }} to withdraw N{{ item.amount }}, timestamped at {{ item.timestamp }}
+</p>
+{% endfor %}
+{% endblock%}

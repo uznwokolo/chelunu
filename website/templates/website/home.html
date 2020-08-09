@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Home{% endblock %}
+
+{% block extracss %}
+
+
+
+{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<div id="userinfo">
+<p>Hi {{ user.username }}!</p><a class="logout" href="{% url 'logout' %}">Logout</a>
+</div>
+<h2>ATM Footage Search App</h2>
+<p>This app will allow branch staff to locate footage for disputed transactions.</p>
+<hr>
+<h3>Company Statistics</h3>
+<table>
+	<caption>Totals</caption>
+	<tr>
+		<td>Branches</td>
+		<td>{{ brn_count }}</td>
+	</tr>
+	<tr>
+		<td>Terminals</td>
+		<td>{{ ter_count }}</td>
+	</tr>
+	<tr>
+		<td>Transactions</td>
+		<td>{{ txn_count }}</td>
+	</tr>
+</table>
+
+<div id="chart-container" style="">
+    <canvas id="donut-chart"></canvas>
+</div>
+
+<script>
+	var config = {
+      type: 'doughnut',
+      data: {
+        datasets: [{
+          data: {{ data|safe }},
+          backgroundColor: [
+            '#b8ef06', '#da1b2b'
+          ],
+          label: 'Transaction Status'
+        }],
+        labels: {{ labels|safe }}
+      },
+      options: {
+        responsive: true,
+        cutoutPercentage: 50
+      }
+    };
+
+    window.onload = function() {
+      var ctx = document.getElementById('donut-chart').getContext('2d');
+      window.myPie = new Chart(ctx, config);
+    };
+</script>
+{% else %}
+<div id="userinfo">
+	<p>You are not logged in</p>
+	<a href="{% url 'login' %}">Login</a>
+</div>
+{% endif %}
+<!--<img href="static/website/binoculars.png" alt="Binoculars">-->
+<!--<a href="{% url 'progress' %}">My progress</a>-->
+
+{% endblock %}

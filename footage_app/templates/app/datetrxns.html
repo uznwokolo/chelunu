@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Form Results{% endblock %}
+
+{% block extracss %}
+
+{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<div id="userinfo">
+<p>Hi {{ user.username }}!</p><a class="logout" href="{% url 'logout' %}">Logout</a>
+</div>
+<h2>Transaction Search - By Date</h2>
+<p id="tagline">Use the form below to search for all transactions on a specific date.</p>
+<hr>
+<form method="post">
+    <table>
+        {{ form.as_table }}
+    </table>
+    {% csrf_token %}
+    <button type="submit">Submit</button>
+</form>
+<hr>
+
+<a href="{% url 'datetrxns' %}">Reset Form</a>
+<h2>Results - Search by Date</h2>
+<h3>Transaction Date: {{ theDate }}</h3>
+<div id="wrapper">
+{% for item in trxnsByDate %}
+<p {% if item.trxn_success %}class="success" {% else %}class="failed" {% endif %}>
+    Transaction #{{ item.id }}:
+    <br>Terminal ID: {{ item.terminal_id }}
+    <br>PAN Used: {{ item.card_pan }}
+    <br>Amount(N): {{ item.amount }}
+    <br><span>{% if item.trxn_success %}Success{% else %}Fail{% endif %}</span>
+</p>
+{% endfor %}
+</div>
+{% else %}
+<div id="userinfo">
+    <p>You are not logged in</p>
+    <a href="{% url 'login' %}">Login</a>
+</div>
+{% endif %}
+
+{% endblock%}

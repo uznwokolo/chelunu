@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Amaranth&family=Fjalla+One&family=Kreon:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Amaranth', sans-serif;
+    background-color: #041f1e;
+    color: #fbfaef;
+    font-size: 20px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-family: 'Fjalla One', sans-serif;
+    color: #f7dba7;
+    font-weight: 500;
+}
+
+a {
+    color: #c57b57;
+    font-size: 18px;
+    font-family: 'Kreon', serif;
+}
+
+hr {
+    border: 1px #ee6352 solid;
+    margin: 10px 0;
+}
+
+header {
+    background-color: #1e2d2f;
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #f1ab86;
+}
+
+ul.navbar {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 50px;
+    margin-top: 42px 0 0 0;
+    flex-direction: flex-end;
+}
+
+ul.navbar li {
+    list-style-type: none;
+    display: inline-flex;
+    margin-top: 40px;
+    margin-left: 16px;
+}
+
+ul.navbar li a {
+    font-size: 20px;
+}
+
+div#container {
+    padding: 5px 30px;
+}
+
+/* USER LOGIN INFO */
+div#userinfo {
+    width: 96%;
+    background-color: #4a5759;
+    padding: 8px 16px;
+    margin-bottom: 20px;
+    display: inline-flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    border-bottom: 1px solid #b0c4b1;
+}
+
+/* CHARTS */
+#chart-container {
+    width: 35%;
+    background-color:#F7DBA7;
+    padding:10px 0 15px 0;
+    margin-top:20px;
+}
+
+/* TABLES */
+table {
+    min-width: 200px;
+    padding: 5px;
+    border-top: 2px solid #F1DAC4;
+}
+th, td {
+    border-bottom: 1px solid #aaa;
+    padding: 6px;
+}
+tr:hover {
+    background-color: #161B33;
+}
+
+/* RESULTS */
+div#wrapper {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: flex-start;
+    align-content: center;
+}
+
+/*p {
+    padding: 10px;
+    margin-left: 30px;
+    width: 380px;
+}*/
+p.success {
+    background-color: #abb06d;
+    color: #f8f1ff;
+    border-radius: 10px;
+    border: 2px solid #a5be00;
+    padding: 10px;
+    margin: 12px 0 6px 16px;
+    width: 240px;
+}
+
+p.failed {
+    background-color: #b76670;
+    color: #361134;
+    border: 2px solid #b0228c;
+    padding: 10px;
+    margin: 12px 0 6px 16px;
+    width: 240px;
+}
+p span {
+    text-decoration: underline;
+}
+p#tagline {
+    width: 600px;
+}

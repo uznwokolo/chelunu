@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Search For A Transaction{% endblock %}
+
+{% block extracss %}
+
+{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<div id="userinfo">
+<p>Hi {{ user.username }}!</p><a class="logout" href="{% url 'logout' %}">Logout</a>
+</div>
+<h2>Transaction Search by ATM, PAN, Date</h2>
+<p>Use the form below to search for a transaction in the database.</p>
+<hr>
+<form method="post">
+    <table>
+        {{ form.as_table }}
+    </table>
+    {% csrf_token %}
+    <button type="submit">Submit</button>
+</form>
+<hr>
+<a href="{% url 'search' %}">Reset Form</a>
+<h2>Results - Search by ATM, PAN, Date</h2>
+{% for item in trxnlist %}
+<p {% if item.trxn_success %}class="success" {% else %}class="failed" {% endif %}>
+    Transaction #{{ item.id }}:
+    <br>Terminal ID: {{ item.terminal_id }} | PAN Used: {{ item.card_pan }}
+    <br>Date/Time: {{ item.timestamp }}
+    <br>Amount(N): {{ item.amount }}
+    <br><span>{% if item.trxn_success %}Success{% else %}Fail{% endif %}</span>
+</p>
+{% endfor %}
+{% else %}
+<div id="userinfo">
+    <p>You are not logged in</p>
+    <a href="{% url 'login' %}">Login</a>
+</div>
+{% endif %}
+
+{% endblock %}
